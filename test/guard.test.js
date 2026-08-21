@@ -19,7 +19,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..').replace(/\\/g, 
 
 function shipped(dir, acc = []) {
   for (const e of readdirSync(dir)) {
-    if (['node_modules', '.git', 'test', 'examples', 'scripts', '.secrets', 'docs'].includes(e)) continue;
+    if (['node_modules', '.git', 'test', 'fixtures', 'examples', 'scripts', '.secrets', 'docs'].includes(e)) continue;
     const p = join(dir, e).replace(/\\/g, '/');
     if (statSync(p).isDirectory()) shipped(p, acc);
     else if (p.endsWith('.js')) acc.push(p);
@@ -68,7 +68,7 @@ test('runtime code imports only node: builtins and own files (zero dependencies)
 });
 
 test('criticality ranking is deterministic across runs', async () => {
-  const fixture = join(ROOT, 'test', 'fixtures', 'project');
+  const fixture = join(ROOT, 'fixtures', 'project');
   const g1 = await buildGraph(fixture);
   const g2 = await buildGraph(fixture);
   const r1 = computeCriticality(g1).map((c) => `${c.file}:${c.score}`);

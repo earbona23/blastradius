@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm ci || npm install
       - name: Test (zero runtime dependencies)
-        run: node --test test/*.test.js
+        run: node --test
       - name: Type-check (JSDoc via tsc)
         run: npx tsc --noEmit
 

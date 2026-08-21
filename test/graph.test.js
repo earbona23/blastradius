@@ -10,7 +10,7 @@ import { buildGraph, isTestFile } from '../src/graph/build.js';
 import { extractImports, stripComments } from '../src/graph/imports.js';
 import { resolveSpecifier } from '../src/graph/resolve.js';
 
-const FIXTURE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'project');
+const FIXTURE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'fixtures', 'project');
 let graph;
 test.before(async () => { graph = await buildGraph(FIXTURE); });
 
@@ -86,5 +86,5 @@ test('test files are detected by name', () => {
   assert.ok(isTestFile('src/__tests__/x.js'));
   assert.ok(isTestFile('foo.spec.ts'));
   assert.ok(!isTestFile('src/core.js'));
-  assert.ok(graph.testFiles.has('test/a.test.js'));
+  assert.ok(graph.testFiles.has('__tests__/a.js'));
 });
