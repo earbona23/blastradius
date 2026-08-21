@@ -1,5 +1,12 @@
 # blastradius
 
+[![CI](https://github.com/earbona23/blastradius/actions/workflows/ci.yml/badge.svg)](https://github.com/earbona23/blastradius/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/blastradius)](https://www.npmjs.com/package/blastradius)
+[![Node ≥18.17](https://img.shields.io/badge/node-%E2%89%A518.17-3c873a)](https://nodejs.org)
+[![Zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](package.json)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/sponsor-%F0%9F%92%9C-db61a2)](https://github.com/sponsors/earbona23)
+
 **What breaks if you change this?** `blastradius` is change-impact analysis for JavaScript
 and TypeScript. It ranks every file by how catastrophic changing it would be, and shows the
 blast radius of a diff — what could break, and which impacted files have no test — as a
