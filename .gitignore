@@ -1,0 +1,19 @@
+node_modules/
+# The license SIGNING key must never be committed. Only the public key ships (embedded
+# in src/license/keys.js). The whole .secrets/ directory stays local.
+.secrets/
+*.pem
+!test/fixtures/**/*.pem
+
+# Report output can contain private source paths — don't commit it by accident.
+/out/
+blastradius-*.html
+blastradius-*.json
+blastradius-*.sarif
+
+.env
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

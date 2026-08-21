@@ -1,0 +1,10 @@
+test/
+docs/
+examples/
+scripts/
+.secrets/
+tsconfig.json
+.editorconfig
+.github/
+CONTRIBUTING.md
+CHANGELOG.md

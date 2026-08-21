@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>blastradius — acme-storefront</title>
+<style>
+:root{color-scheme:light dark;--bg:#eef1f5;--surface:#fff;--surface2:#f6f8fa;--ink:#12161c;--muted:#5a6675;--line:#e0e5eb;--accent:#5b3fd6;--hi:#b02a1f;--mid:#9a6a00;--lo:#1f7a44;--radius:12px}
+@media(prefers-color-scheme:dark){:root{--bg:#0c1016;--surface:#141a22;--surface2:#1a212b;--ink:#e6edf5;--muted:#94a2b4;--line:#232c38;--accent:#9d86ff;--hi:#ff6a5c;--mid:#e5b93f;--lo:#46c07a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px 64px}
+header{padding:34px 0 8px}.eyebrow{margin:0;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{margin:6px 0 2px;font-size:28px;letter-spacing:-.02em}.sub{color:var(--muted);margin:0}
+h2{font-size:17px;margin:28px 0 12px}
+section{margin-top:24px}
+.verdict{display:flex;gap:22px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--lo);border-radius:var(--radius);padding:22px 26px}
+.verdict.hi{border-left-color:var(--hi)}.verdict.mid{border-left-color:var(--mid)}
+.risk{font-size:46px;font-weight:800;line-height:1;letter-spacing:-.03em}.risk span{font-size:18px;color:var(--muted);font-weight:600}
+.verdict.hi .risk{color:var(--hi)}.verdict.mid .risk{color:var(--mid)}.verdict.lo .risk{color:var(--lo)}
+.vlabel{font-size:16px;font-weight:700;text-transform:capitalize}.factors{color:var(--muted);font-size:13px;margin-top:2px}
+table.grid{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:13.5px;vertical-align:middle}
+thead th{background:var(--surface2);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+tbody tr:last-child td{border-bottom:0}.num{text-align:right;font-variant-numeric:tabular-nums}
+.file{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;overflow-wrap:anywhere}
+.score{font-weight:700;font-variant-numeric:tabular-nums}.score.hi{color:var(--hi)}.score.mid{color:var(--mid)}.score.lo{color:var(--lo)}
+td.bar{width:130px}td.bar span{display:block;height:8px;border-radius:999px;background:var(--lo)}td.bar span.hi{background:var(--hi)}td.bar span.mid{background:var(--mid)}
+.ok{color:var(--lo);font-size:12px;font-weight:600}.gap{color:var(--hi);font-size:12px;font-weight:700}
+ul.changed{list-style:none;padding:0;margin:0}ul.changed li{font-family:ui-monospace,monospace;font-size:13px;padding:4px 0;border-bottom:1px solid var(--line)}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+@media print{:root{--bg:#fff;--surface:#fff;--surface2:#fff;--line:#bbb;--ink:#000}}
+</style></head><body><main class="wrap">
+<header><p class="eyebrow">blastradius · criticality survey</p>
+<h1>acme-storefront</h1>
+<p class="sub">2026-03-14 09:41 UTC · 214 files · 611 edges · blastradius 1.0.0</p></header>
+<section><table class="grid"><thead><tr><th>Score</th><th></th><th>File</th><th class="num">Dependents</th><th>Coverage</th></tr></thead><tbody><tr><td class="score hi">98</td><td class="bar"><span class="hi" style="width:98%"></span></td><td class="file">src/lib/http/client.ts</td><td class="num">173</td><td><span class="ok">covered</span></td></tr><tr><td class="score hi">95</td><td class="bar"><span class="hi" style="width:95%"></span></td><td class="file">src/store/index.ts</td><td class="num">158</td><td><span class="ok">covered</span></td></tr><tr><td class="score hi">91</td><td class="bar"><span class="hi" style="width:91%"></span></td><td class="file">src/lib/money.ts</td><td class="num">96</td><td><span class="gap">no test</span></td></tr><tr><td class="score hi">84</td><td class="bar"><span class="hi" style="width:84%"></span></td><td class="file">src/lib/errors.ts</td><td class="num">88</td><td><span class="ok">covered</span></td></tr><tr><td class="score hi">79</td><td class="bar"><span class="hi" style="width:79%"></span></td><td class="file">src/api/schema.ts</td><td class="num">71</td><td><span class="ok">covered</span></td></tr><tr><td class="score hi">72</td><td class="bar"><span class="hi" style="width:72%"></span></td><td class="file">src/lib/date.ts</td><td class="num">64</td><td><span class="gap">no test</span></td></tr><tr><td class="score mid">61</td><td class="bar"><span class="mid" style="width:61%"></span></td><td class="file">src/components/Button.tsx</td><td class="num">44</td><td><span class="ok">covered</span></td></tr><tr><td class="score mid">58</td><td class="bar"><span class="mid" style="width:58%"></span></td><td class="file">src/hooks/useCart.ts</td><td class="num">39</td><td><span class="ok">covered</span></td></tr><tr><td class="score mid">47</td><td class="bar"><span class="mid" style="width:47%"></span></td><td class="file">src/lib/format.ts</td><td class="num">22</td><td><span class="ok">covered</span></td></tr><tr><td class="score lo">33</td><td class="bar"><span class="lo" style="width:33%"></span></td><td class="file">src/routes/checkout.tsx</td><td class="num">9</td><td><span class="gap">no test</span></td></tr><tr><td class="score lo">28</td><td class="bar"><span class="lo" style="width:28%"></span></td><td class="file">src/routes/product.tsx</td><td class="num">6</td><td><span class="ok">covered</span></td></tr><tr><td class="score lo">12</td><td class="bar"><span class="lo" style="width:12%"></span></td><td class="file">src/components/Footer.tsx</td><td class="num">1</td><td><span class="ok">covered</span></td></tr></tbody></table></section>
+<footer>Generated by <strong>blastradius</strong>. Criticality is graph position; risk folds in test coverage. A graph-based analysis, not a runtime profile.</footer>
+</main></body></html>
