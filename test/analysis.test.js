@@ -10,7 +10,7 @@ import { computeCriticality } from '../src/analysis/criticality.js';
 import { coverageByGraph } from '../src/analysis/tests.js';
 import { analyzeImpact } from '../src/analysis/impact.js';
 
-const FIXTURE = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'project');
+const FIXTURE = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'fixtures', 'project');
 let graph, coverage, criticality;
 test.before(async () => {
   graph = await buildGraph(FIXTURE);
@@ -46,7 +46,7 @@ test('changing core impacts its whole reverse-reachable set, ranked by distance'
   const impactedFiles = r.impacted.map((i) => i.file);
   assert.deepEqual(
     [...impactedFiles].sort(),
-    ['src/a.js', 'src/b.js', 'src/entry.js', 'src/util.js', 'test/a.test.js'].sort(),
+    ['src/a.js', 'src/b.js', 'src/entry.js', 'src/util.js', '__tests__/a.js'].sort(),
   );
   const util = r.impacted.find((i) => i.file === 'src/util.js');
   const entry = r.impacted.find((i) => i.file === 'src/entry.js');

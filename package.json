@@ -20,8 +20,9 @@
     "node": ">=18.17.0"
   },
   "scripts": {
-    "test": "node --test test/*.test.js",
-    "typecheck": "tsc --noEmit"
+    "test": "node --test",
+    "typecheck": "tsc --noEmit",
+    "lint": "node --test && tsc --noEmit"
   },
   "keywords": [
     "dependency-graph",
