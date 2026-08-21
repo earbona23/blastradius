@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['18', '20', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci || npm install
+      - name: Test (zero runtime dependencies)
+        run: node --test test/*.test.js
+      - name: Type-check (JSDoc via tsc)
+        run: npx tsc --noEmit
+
+  dogfood:
+    name: Dogfood — analyse self, gate on risk
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # The tool ranks its own criticality and renders the sample. A smoke test that the
+      # CLI actually runs end to end on a real project (itself).
+      - run: node bin/cli.js criticality --no-color --top 5
+      - run: node examples/generate-sample.js /tmp/sample
+      - run: test -s /tmp/sample/sample-impact.html

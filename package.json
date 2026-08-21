@@ -1,0 +1,62 @@
+{
+  "name": "blastradius",
+  "version": "1.0.0",
+  "description": "Change-impact analysis for JavaScript & TypeScript. Ranks every file by how catastrophic changing it would be (criticality), and shows the blast radius of a diff \u2014 what could break and which impacted files have no test \u2014 as a CI-gateable risk score. Zero runtime dependencies.",
+  "type": "module",
+  "bin": {
+    "blastradius": "bin/cli.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "dependency-graph",
+    "impact-analysis",
+    "blast-radius",
+    "change-risk",
+    "code-analysis",
+    "criticality",
+    "pagerank",
+    "test-coverage",
+    "test-gap",
+    "ci",
+    "monorepo",
+    "javascript",
+    "typescript",
+    "static-analysis",
+    "devtools",
+    "zero-dependency",
+    "cli",
+    "affected",
+    "graph"
+  ],
+  "author": "Eduard Arbona",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/earbona23",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earbona23/blastradius.git"
+  },
+  "homepage": "https://github.com/earbona23/blastradius#readme",
+  "bugs": {
+    "url": "https://github.com/earbona23/blastradius/issues"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}
