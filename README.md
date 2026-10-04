@@ -1,21 +1,31 @@
 # blastradius
 
 [![CI](https://github.com/earbona23/blastradius/actions/workflows/ci.yml/badge.svg)](https://github.com/earbona23/blastradius/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/blastradius)](https://www.npmjs.com/package/blastradius)
 [![Node ≥18.17](https://img.shields.io/badge/node-%E2%89%A518.17-3c873a)](https://nodejs.org)
 [![Zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](package.json)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Sponsor](https://img.shields.io/badge/sponsor-%F0%9F%92%9C-db61a2)](https://github.com/sponsors/earbona23)
+
+> **Snapshot, not maintained.** This tool works and its tests pass, but it is not under
+> active development: I am not adding features and I do not review pull requests on a
+> schedule. Issues are welcome and I do read them — a reply may take a while. Last
+> substantive change: September 2026.
+>
+> Maintained instead: [revtriage](https://github.com/earbona23/revtriage),
+> [entra-tripwire](https://github.com/earbona23/entra-tripwire),
+> [entraform](https://github.com/earbona23/entraform) and
+> [vantage](https://github.com/earbona23/vantage).
 
 **What breaks if you change this?** `blastradius` is change-impact analysis for JavaScript
 and TypeScript. It ranks every file by how catastrophic changing it would be, and shows the
 blast radius of a diff — what could break, and which impacted files have no test — as a
 single CI-gateable risk score.
 
-One command, no install, no dependencies:
+One command, no dependencies — clone it and run:
 
 ```sh
-npx blastradius impact --since main
+git clone https://github.com/earbona23/blastradius.git && cd blastradius
+node bin/cli.js impact --since main
 ```
 
 ![Blast radius report](docs/images/impact.png)
@@ -43,17 +53,20 @@ and answers two questions:
 
 ## Install
 
-Run it with `npx` — nothing to install:
+Not published to a package registry — clone it and run it. There is nothing to install
+beyond Node itself, because there are no runtime dependencies:
 
 ```sh
-npx blastradius --help
+git clone https://github.com/earbona23/blastradius.git
+cd blastradius
+node bin/cli.js --help
 ```
 
-Or install it:
+To get a `blastradius` command on your `PATH` from that checkout:
 
 ```sh
-npm install -g blastradius     # CLI everywhere
-npm install -D blastradius     # in a project, for CI
+npm link        # uses the local checkout; nothing is downloaded
+blastradius --help
 ```
 
 Requires **Node 18.17+**. **Zero runtime dependencies** — the whole tool is Node builtins,
@@ -63,16 +76,16 @@ which means nothing third-party to audit and a supply chain of exactly one: you.
 
 ```sh
 # Rank the whole project by criticality
-npx blastradius criticality
+node bin/cli.js criticality
 
 # Blast radius of your working changes vs a branch
-npx blastradius impact --since main
+node bin/cli.js impact --since main
 
 # Or pass changed files explicitly (no git needed)
-npx blastradius impact --files src/lib/money.ts,src/store/index.ts
+node bin/cli.js impact --files src/lib/money.ts,src/store/index.ts
 
 # Export the dependency graph as a Mermaid diagram (renders on GitHub)
-npx blastradius graph > graph.mmd
+node bin/cli.js graph > graph.mmd
 ```
 
 ### As a CI gate
@@ -85,8 +98,9 @@ blastradius impact --since origin/main --max-risk 60
 ```
 
 ```yaml
-# .github/workflows/impact.yml
-- run: npx blastradius impact --since origin/${{ github.base_ref }} --max-risk 60
+# .github/workflows/impact.yml — clone the tool, then point it at your checkout
+- run: git clone --depth 1 https://github.com/earbona23/blastradius.git /tmp/blastradius
+- run: node /tmp/blastradius/bin/cli.js impact --since origin/${{ github.base_ref }} --max-risk 60
 ```
 
 ### Path aliases & monorepos
