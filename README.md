@@ -6,20 +6,17 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Sponsor](https://img.shields.io/badge/sponsor-%F0%9F%92%9C-db61a2)](https://github.com/sponsors/earbona23)
 
-> **Snapshot, not maintained.** This tool works and its tests pass, but it is not under
-> active development: I am not adding features and I do not review pull requests on a
-> schedule. Issues are welcome and I do read them — a reply may take a while. Last
-> substantive change: September 2026.
->
-> Maintained instead: [revtriage](https://github.com/earbona23/revtriage),
-> [entra-tripwire](https://github.com/earbona23/entra-tripwire),
-> [entraform](https://github.com/earbona23/entraform) and
-> [vantage](https://github.com/earbona23/vantage).
-
 **What breaks if you change this?** `blastradius` is change-impact analysis for JavaScript
 and TypeScript. It ranks every file by how catastrophic changing it would be, and shows the
 blast radius of a diff — what could break, and which impacted files have no test — as a
 single CI-gateable risk score.
+
+> **Status: snapshot.** Feature-complete for what it does and its tests pass; last
+> substantive change September 2026. I am not adding features here, and issues are welcome
+> and read. Under active maintenance instead: [revtriage](https://github.com/earbona23/revtriage),
+> [entra-tripwire](https://github.com/earbona23/entra-tripwire),
+> [entraform](https://github.com/earbona23/entraform) and
+> [vantage](https://github.com/earbona23/vantage).
 
 One command, no dependencies — clone it and run:
 
